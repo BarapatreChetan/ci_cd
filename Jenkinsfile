@@ -6,11 +6,6 @@ pipeline {
                 git url:'https://github.com/BarapatreChetan/ci_cd.git', branch:'main'
             }
         }
-        stage("Cleanup Stage") {
-            steps {
-                sh 'docker rm -f $(docker ps -aq)'
-            }
-        }
         stage("Build Docker image") {
             steps {
                 sh 'docker build -t myimage .'
